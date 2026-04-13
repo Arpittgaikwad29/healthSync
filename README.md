@@ -393,3 +393,167 @@ For issues:
 ---
 
 **Built with FastAPI, Neo4j, and Google Gemini AI** 🚀
+
+# MediGraph Healthcare Frontend
+
+A modern, AI-powered healthcare data management system built with React.
+
+## 🎨 Design Features
+
+- **Unique Color Palette**: Custom teal-mint healthcare theme
+- **Smooth Animations**: Professional micro-interactions
+- **Responsive Design**: Works on all devices
+- **6-Agent Processing**: Real-time visualization of AI processing
+- **Modern UI**: Clean, professional healthcare interface
+
+## 🚀 Quick Start
+
+### Installation
+
+```bash
+cd healthcare-frontend
+npm install
+npm start
+```
+
+The app will run on `http://localhost:3000`
+
+## 📁 Project Structure
+
+```
+healthcare-frontend/
+├── public/
+│   └── index.html
+├── src/
+│   ├── components/
+│   │   ├── Auth/
+│   │   │   ├── Login.jsx
+│   │   │   ├── Register.jsx
+│   │   │   └── Auth.css
+│   │   ├── Patient/
+│   │   │   ├── PatientDashboard.jsx
+│   │   │   ├── Sidebar.jsx
+│   │   │   ├── MyReports.jsx
+│   │   │   ├── UploadPrescription.jsx
+│   │   │   └── PatientDashboard.css
+│   │   └── Doctor/
+│   │       ├── DoctorDashboard.jsx
+│   │       └── DoctorDashboard.css
+│   ├── App.jsx
+│   ├── App.css
+│   ├── index.js
+│   └── index.css
+└── package.json
+```
+
+## 🔌 Backend Integration
+
+The frontend expects these API endpoints:
+
+### Authentication
+- `POST /api/auth/login` - User login
+  ```json
+  Request: { "user_id": "string", "password": "string" }
+  Response: { "user_type": "Patient" | "Doctor" }
+  ```
+
+- `POST /api/auth/register` - User registration
+  ```json
+  Request: { "user_id": "string", "password": "string", "user_type": "Patient" | "Doctor" }
+  Response: { "message": "success" }
+  ```
+
+### Patient Endpoints
+- `GET /api/patient/{patient_id}/summary` - Get patient medical summary
+  ```json
+  Response: {
+    "summary": "string",
+    "medications": ["string"],
+    "diagnoses": ["string"],
+    "recommendations": "string"
+  }
+  ```
+
+### Prescription Processing
+- `POST /api/process-prescription` - Upload and process prescription
+  ```
+  Request: FormData with 'file' and 'patient_id'
+  Response: Server-Sent Events (SSE) stream
+  
+  Event format:
+  data: {"agent": 1-6, "result": {...}}
+  data: {"final": "analysis result"}
+  data: {"error": "error message"}
+  ```
+
+## 🎯 Features
+
+### For Patients
+- ✅ Upload medical prescriptions (images)
+- ✅ View AI-processed medical reports
+- ✅ Track medications and diagnoses
+- ✅ Real-time processing visualization
+
+### For Doctors
+- ✅ Search patient records by Aadhar number
+- ✅ View complete medical history
+- ✅ Access treatment recommendations
+- ✅ HIPAA-compliant data access
+
+## 🎨 Color Palette
+
+```css
+Primary Teal: #0D7377
+Primary Mint: #14FFEC
+Secondary Sage: #7BA591
+Accent Coral: #FF6B6B
+Accent Amber: #FFB84D
+Dark Navy: #0A2463
+```
+
+## 📱 Responsive Breakpoints
+
+- Desktop: > 1024px
+- Tablet: 768px - 1024px
+- Mobile: < 768px
+
+## 🔒 Security Notes
+
+- All passwords should be hashed on the backend
+- Use HTTPS in production
+- Implement proper CORS policies
+- Add rate limiting to API endpoints
+- Validate file uploads on backend
+
+## 🚀 Deployment
+
+### Frontend (Vercel/Netlify)
+```bash
+npm run build
+# Deploy 'build' folder
+```
+
+### Environment Variables
+Create `.env` file:
+```
+REACT_APP_API_URL=http://localhost:8000
+```
+
+## 🎓 Next Steps
+
+1. **Connect to Backend**: Update API URLs in components
+2. **Add Error Boundaries**: Implement React error boundaries
+3. **Add Loading States**: Improve UX with skeleton loaders
+4. **Add Tests**: Write unit and integration tests
+5. **Optimize Images**: Add image compression
+6. **Add PWA Support**: Make it installable
+7. **Add Analytics**: Track user interactions
+
+## 📄 License
+
+Educational/Final Year Project
+
+---
+
+**Built with ❤️ for your Final Year Project**
+
